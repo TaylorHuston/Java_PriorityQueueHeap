@@ -1,14 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+  Priority Queue based on section 2.4 of
+  <a href="http://algs4.cs.princeton.edu/home/">Algorithms, 4th Edition - Robert Sedgewick | Kevine Wayne</a>
  */
-
-/**
- *
- * @author Taylor
- */
-public class PriorityQueue<Key> {
+public class PriorityQueue<Key extends Comparable<Key>> {
     private BinaryHeap pq;
     
     PriorityQueue(int size) {
@@ -16,28 +10,58 @@ public class PriorityQueue<Key> {
     }
     
     void insert(Key v) {
-        
+        pq.insert(v);
     }
     
-    Key max(){
+    Comparable max(){
         return pq.getKey(1);
     }
     
-    Key delMax() {
-        
+    Comparable delMax() {
+        if (!this.isEmpty()) {
+            return pq.remove();
+        }
+        else return("PQ is empty");
     }
      
     boolean isEmpty() {
-        
+        return pq.IsEmpty();
     }
     
     int size() {
-        
+       return pq.size(); 
     }
     
+    void printQ() {
+        pq.printHeap();
+    }
     
     public static void main(String[] args) {
-        // TODO code application logic here
+        PriorityQueue<String> testPQ = new PriorityQueue<String>(10);
+        testPQ.insert("P");
+        testPQ.insert("Q");
+        testPQ.insert("E");
+        
+        testPQ.printQ();
+        
+        testPQ.delMax();
+        testPQ.insert("X");
+        testPQ.insert("A");
+        testPQ.insert("M");
+        
+        testPQ.printQ();
+        
+        testPQ.delMax();
+        testPQ.printQ();
+        
+        testPQ.insert("P");
+        testPQ.insert("L");
+        testPQ.insert("E");
+        
+        testPQ.delMax();
+        testPQ.printQ();
+        
+        
     }
     
 }

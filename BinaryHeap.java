@@ -1,12 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author Taylor
+  Binary Heap, Array implementation, based on secion 2.4 of
+  <a href="http://algs4.cs.princeton.edu/home/">Algorithms, 4th Edition - Robert Sedgewick | Kevine Wayne</a>
  */
 public class BinaryHeap<Key extends Comparable<Key>> {
     private Key[] theHeap;
@@ -16,8 +10,12 @@ public class BinaryHeap<Key extends Comparable<Key>> {
         theHeap = (Key[]) new Comparable[size+1];
     }
     
-    public boolean IsEmpty () {
+    public boolean IsEmpty() {
         return heapMax == 0;
+    }
+    
+    public int size() {
+        return heapMax;
     }
     
     public void insert(Key keyToAdd) {
@@ -33,6 +31,10 @@ public class BinaryHeap<Key extends Comparable<Key>> {
         
         return toReturn;
     }
+    
+    public Key getKey(int k) {
+        return theHeap[1];
+    }
 
     private void swim(int k) {
         while (k > 1 && less(k/2,k)) {
@@ -46,7 +48,7 @@ public class BinaryHeap<Key extends Comparable<Key>> {
         while(2*k <= heapMax) {
             int j = 2*k;
             
-            if (j < heapMax &&less(j, j+1)) {
+            if (j < heapMax && less(j, j+1)) {
                 j++;
             }
             
@@ -69,10 +71,11 @@ public class BinaryHeap<Key extends Comparable<Key>> {
         theHeap[j] = temp;
     }
     
-    private void printHeap() {
+    public void printHeap() {
         for(int i = 1; i <= heapMax; i++) {
             StdOut.print(theHeap[i]);
         }
+        StdOut.println();
     }
     
     
