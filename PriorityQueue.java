@@ -1,6 +1,6 @@
 /*
-  Priority Queue based on section 2.4 of
-  <a href="http://algs4.cs.princeton.edu/home/">Algorithms, 4th Edition - Robert Sedgewick | Kevine Wayne</a>
+  Priority Queue 
+  Based on section 2.4 of <a href="http://algs4.cs.princeton.edu/home/">Algorithms, 4th Edition - Robert Sedgewick | Kevine Wayne</a>
  */
 public class PriorityQueue<Key extends Comparable<Key>> {
     private BinaryHeap pq;
