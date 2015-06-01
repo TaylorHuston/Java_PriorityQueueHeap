@@ -1,6 +1,5 @@
 /*
   Binary Heap using an Array
-  Based on secion 2.4 of <a href="http://algs4.cs.princeton.edu/home/">Algorithms, 4th Edition - Robert Sedgewick | Kevine Wayne</a>
  */
 public class BinaryHeap<Key extends Comparable<Key>> {
     private Key[] theHeap;
